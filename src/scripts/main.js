@@ -141,7 +141,7 @@ const keyPress = (e) => {
 };
 
 const touchEnd = (e) => {
-  if (startX) {
+  if (startX && startY) {
     const touchEndX = e.changedTouches[0].clientX;
     const deltaX = touchEndX - startX;
 
@@ -202,7 +202,11 @@ button.addEventListener('click', () => {
   swipeArea.addEventListener('touchstart', (e) => {
     startX = e.touches[0].clientX;
     startY = e.touches[0].clientY;
-  }, { passive: true });
+  });
 
-  swipeArea.addEventListener('touchend', touchEnd, { passive: true });
+  swipeArea.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+  });
+
+  swipeArea.addEventListener('touchend', touchEnd,);
 });
