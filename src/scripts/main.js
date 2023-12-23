@@ -148,7 +148,7 @@ const touchEnd = (e) => {
     const touchEndY = e.changedTouches[0].clientY;
     const deltaY = touchEndY - startY;
 
-    if (Math.abs(deltaX) > 100) {
+    if (Math.abs(deltaX) > 50) {
       if (deltaX > 0) {
         fillGameField(stepX(gameField, true));
         nextCell(gameField);
@@ -157,10 +157,10 @@ const touchEnd = (e) => {
         nextCell(gameField);
       }
 
-      startX = null;
+      // startX = null;
     }
 
-    if (Math.abs(deltaY) > 100) {
+    if (Math.abs(deltaY) > 50) {
       if (deltaY > 0) {
         fillGameField(stepY(gameField, true));
         nextCell(gameField);
@@ -169,7 +169,7 @@ const touchEnd = (e) => {
         nextCell(gameField);
       }
 
-      startY = null;
+      // startY = null;
     }
   }
 };
